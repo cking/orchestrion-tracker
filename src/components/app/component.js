@@ -36,6 +36,9 @@ module.exports = class {
   }
 
   filter (ev, el) {
+    if (ev instanceof KeyboardEvent && ev.key === 'Enter') {
+      return document.querySelector('[type="checkbox"]').click()
+    }
     this.state.filter = el.value
   }
 
