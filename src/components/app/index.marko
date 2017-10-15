@@ -3,7 +3,7 @@ div.wrapper
     h1 -- FFXIV Orchestrion Tracker
   div
     div
-      input#filter type="search" placeholder="filter" value=state.filter on-input("filter") on-keypress("filter")
+      input#filter type="search" placeholder="filter" value=state.filter on-keypress("filter")
       button type="button" on-click("fetchRolls", true) -- Refresh Cache
     ul
       li class={active: state.category === "all"} on-click("select", "all") -- All

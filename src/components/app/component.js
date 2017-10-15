@@ -37,9 +37,11 @@ module.exports = class {
 
   filter (ev, el) {
     if (ev instanceof KeyboardEvent && ev.key === 'Enter') {
-      return document.querySelector('[type="checkbox"]').click()
+      document.querySelector('[type="checkbox"]').click()
+      el.select()
+    } else {
+      this.state.filter = el.value
     }
-    this.state.filter = el.value
   }
 
   async fetchRolls (ignoreCache = false) {
