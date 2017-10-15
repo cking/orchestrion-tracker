@@ -41,8 +41,8 @@ module.exports = class {
     this.state.filter = el.value
   }
 
-  async fetchRolls () {
-    if (window.localStorage.ts && window.localStorage.ts < Date.now() + 1000 * 60 * 60 * 24 * 7) {
+  async fetchRolls (ignoreCache = false) {
+    if (!ignoreCache && (window.localStorage.ts && window.localStorage.ts < Date.now() + 1000 * 60 * 60 * 24 * 7)) {
       return new Promise(rs => setTimeout(() => rs(JSON.parse(window.localStorage.rolls)), 100))
     }
 

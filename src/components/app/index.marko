@@ -2,7 +2,9 @@ div.wrapper
   header
     h1 -- FFXIV Orchestrion Tracker
   div
-    input#filter type="search" placeholder="filter" value=state.filter on-input("filter")
+    div
+      input#filter type="search" placeholder="filter" value=state.filter on-input("filter")
+      button type="button" on-click("fetchRolls", true) -- Refresh Cache
     ul
       li class={active: state.category === "all"} on-click("select", "all") -- All
       li class={active: state.category === "locales"} on-click("select", "locales") -- Locales
@@ -13,3 +15,12 @@ div.wrapper
       li class={active: state.category === "seasonals"} on-click("select", "seasonals") -- Seasonals
       li class={active: state.category === "unkown"} on-click("select", "unkown") -- Unkown
   list category=state.category rolls=state.filtered_rolls filter=state.filter
+  footer
+    p
+      ---
+      Made by
+      <a href="https://eu.finalfantasyxiv.com/lodestone/character/9384803/" target="_BLANK">Astolfo Black</a>
+      from Cerberus
+      ---
+    p
+      -- Source Code available under<a href="https://github.com/cking/orchestrion-tracker">GitHub</a>
