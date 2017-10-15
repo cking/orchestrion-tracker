@@ -12,10 +12,7 @@ module.exports = class {
       category: 'all',
       filter: ''
     }
-    this.fetchRolls().then(rolls => {
-      this.state.rolls = rolls
-      this.select(this.state.category)
-    })
+    this.fetchRolls()
   }
 
   select (category) {
@@ -43,7 +40,10 @@ module.exports = class {
 
   async fetchRolls (ignoreCache = false) {
     if (!ignoreCache && (window.localStorage.ts && window.localStorage.ts < Date.now() + 1000 * 60 * 60 * 24 * 7)) {
-      return new Promise(rs => setTimeout(() => rs(JSON.parse(window.localStorage.rolls)), 100))
+      return setTimeout(() => {
+        this.state.rolls = JSON.parse(window.localStorage.rolls)
+        this.select(this.state.category)
+      }, 10)
     }
 
     let rolls = []
@@ -68,6 +68,7 @@ module.exports = class {
     )
     window.localStorage.rolls = JSON.stringify(state)
     window.localStorage.ts = Date.now()
-    return state
+    this.state.rolls = state
+    this.select(this.state.category)
   }
 }
