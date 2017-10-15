@@ -36,11 +36,16 @@ module.exports = class {
   }
 
   filter (ev, el) {
-    if (ev instanceof KeyboardEvent && ev.key === 'Enter') {
-      document.querySelector('[type="checkbox"]').click()
-      el.select()
+    if (ev instanceof KeyboardEvent) {
+      switch (ev.Key) {
+        case 'Enter':
+          document.querySelector('[type="checkbox"]').click()
+        case 'Escape':
+          el.select()
+          el.focus()
+      }
     } else {
-      this.state.filter = el.value
+      this.state.filter += ev.key
     }
   }
 
