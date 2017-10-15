@@ -1,0 +1,4 @@
+{
+  "outputDir": "./dist",
+  "plugins": ["lasso-marko", "lasso-stylus"]
+}

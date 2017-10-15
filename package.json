@@ -1,0 +1,23 @@
+{
+  "name": "orchestrion",
+  "version": "1.0.0",
+  "description": "Orchestrion Tracker",
+  "main": "bin/watch.js",
+  "scripts": {
+    "watch": "browser-refresh bin/watch.js --"
+  },
+  "author": "Kura <contact@kurabloodlust.eu>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "browser-refresh": "^1.7.2",
+    "fs-extra": "^4.0.2",
+    "lasso": "^2.11.16",
+    "lasso-cli": "^2.0.8",
+    "lasso-marko": "^2.3.1",
+    "lasso-stylus": "^1.1.7",
+    "marko": "^4.5.0",
+    "mime": "^2.0.3",
+    "minimist": "^1.2.0",
+    "opn": "^5.1.0"
+  }
+}
