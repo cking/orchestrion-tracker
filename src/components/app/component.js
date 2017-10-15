@@ -45,7 +45,7 @@ module.exports = class {
           el.focus()
       }
     } else {
-      this.state.filter += ev.key
+      this.state.filter = el.value
     }
   }
 
