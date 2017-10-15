@@ -33,7 +33,7 @@ if (process.argv.length > 2) {
   if (process.argv[idx] === '--') {
     idx++
   }
-  port = +process.argv[idx]
+  port = +(process.argv[idx] || 3000)
 }
 const url = `http://localhost:${port}`
 
