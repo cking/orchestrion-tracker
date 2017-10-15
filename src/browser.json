@@ -1,3 +1,19 @@
 {
-  "dependencies": []
+  "dependencies": [
+    {
+      // PT Font
+      "type": "css",
+      "url": "//fonts.googleapis.com/css?family=PT+Mono|PT+Sans"
+    },
+    {
+      // Ionicon Icons
+      "type": "css",
+      "url": "//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    },
+    {
+      // normalize
+      "type": "css",
+      "url": "https://unpkg.com/normalize.css"
+    },
+    "require-run: ./orchestrion.js"]
 }

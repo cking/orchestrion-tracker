@@ -1,0 +1,37 @@
+.tab {
+  float: left
+
+  label {
+    position: relative
+    padding: .5rem 1rem
+    cursor: pointer
+
+    &:hover {
+      background: radial-gradient(lighten(rgb(109, 90, 64), 25), transparent 75%)
+    }
+  }
+
+  .content {
+    position: absolute
+    top: 28px
+    right: 0
+    bottom: 0
+    left: 0
+    padding: 20px
+    border: 1px solid #ccc
+    background: white
+  }
+
+  [type=radio] {
+    display: none
+
+    &:checked ~ label {
+      z-index: 2
+      background: radial-gradient(rgb(109, 90, 64), transparent 75%)
+
+      ~ .content {
+        z-index: 1
+      }
+    }
+  }
+}

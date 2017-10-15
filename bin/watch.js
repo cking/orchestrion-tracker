@@ -18,6 +18,15 @@ if (!brc.isBrowserRefreshEnabled()) {
   process.exit(1)
 }
 
+// monkey patch
+const _use = require('stylus/lib/renderer').prototype.use
+require('stylus/lib/renderer').prototype.use = function (fn) {
+  if (typeof fn === 'string') {
+    fn = require(fn)
+  }
+  return _use.call(this, fn)
+}
+
 let port = 3000
 if (process.argv.length > 2) {
   let idx = 2
@@ -61,7 +70,18 @@ require('../src/index.marko')
     const http = require('http')
     return new Promise(rs => {
       const server = http.createServer(async (req, res) => {
-        console.log('> GET', req.url)
+        req.url = req.url.split('?').shift()
+        console.log('>', req.method, req.url)
+
+        if (req.url === '/' || req.url === '/index.html') {
+          console.log('<', 200, req.url)
+          res.writeHead(200, {
+            'Content-Type': 'text/html',
+            'Access-Control-Allow-Origin': '*'
+          })
+          return require('../src/index.marko').render({ debug: true }, res)
+        }
+
         let file = path.join(__dirname, '..', 'dist', req.url)
         let stat = null
 
@@ -80,10 +100,10 @@ require('../src/index.marko')
         }
 
         if (!stat.isFile()) {
-          console.log('<', 404, file)
+          console.log('<', 404, req.url)
           res.writeHead(404, { 'Access-Control-Allow-Origin': '*' })
         } else {
-          console.log('<', 200, file)
+          console.log('<', 200, req.url)
           res.writeHead(200, {
             'Content-Type': mime.getType(file) || 'application/octet-stream',
             'Access-Control-Allow-Origin': '*'

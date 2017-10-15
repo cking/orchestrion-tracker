@@ -1,0 +1,5 @@
+div class="tab"
+  input type="radio" id:scoped="tab-radio" name=("tab-" + input.group) checked=input.checked
+  label for:scoped="tab-radio" -- ${input.name}
+  div class="content"
+    include(input.body)

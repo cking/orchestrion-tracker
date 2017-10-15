@@ -1,4 +1,14 @@
 {
   "outputDir": "./dist",
-  "plugins": ["lasso-marko", "lasso-stylus"]
+  "urlPrefix": "/",
+  "plugins": [
+    "lasso-marko",
+    {
+      "plugin": "lasso-stylus",
+      "config": {
+        "use": ["stylus-require-css-evaluator"],
+        "includes": ["./node_modules"]
+      }
+    }
+  ]
 }

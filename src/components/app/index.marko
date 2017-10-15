@@ -1,0 +1,15 @@
+div.wrapper
+  header
+    h1 -- FFXIV Orchestrion Tracker
+  div
+    input#filter type="search" placeholder="filter" value=state.filter on-input("filter")
+    ul
+      li class={active: state.category === "all"} on-click("select", "all") -- All
+      li class={active: state.category === "locales"} on-click("select", "locales") -- Locales
+      li class={active: state.category === "dungeons"} on-click("select", "dungeons") -- Dungeons
+      li class={active: state.category === "primals"} on-click("select", "primals") -- Primal Battles
+      li class={active: state.category === "raids"} on-click("select", "raids") -- Raids
+      li class={active: state.category === "others"} on-click("select", "others") -- Others
+      li class={active: state.category === "seasonals"} on-click("select", "seasonals") -- Seasonals
+      li class={active: state.category === "unkown"} on-click("select", "unkown") -- Unkown
+  list category=state.category rolls=state.filtered_rolls filter=state.filter

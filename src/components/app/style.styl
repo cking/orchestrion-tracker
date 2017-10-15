@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit
+}
+
+body {
+  height: 100vh
+  background: url('./images/background_monk.jpg') no-repeat fixed center center
+  background-size: cover
+  color: #eee
+  font-family: 'PT Sans'
+}
+
+.wrapper {
+  display: grid
+  margin: 1rem auto
+  padding: .5rem
+  width: 1080px
+  border-radius: .75rem
+  background: #000a
+  box-shadow: 0 0 .5rem .5rem #000a
+}
+
+ul {
+  margin: 0
+  padding: 0
+
+  li {
+    display: inline-block
+    padding: .5rem 1rem
+    cursor: pointer
+
+    &:hover {
+      background: radial-gradient(lighten(rgb(109, 90, 64), 25), transparent 75%)
+    }
+
+    &.active {
+      background: radial-gradient(rgb(109, 90, 64), transparent 75%)
+    }
+  }
+}
+
+table {
+  width: 100%
+  border-collapse: collapse
+
+  tr:nth-child(even) {
+    background: #fff2
+  }
+
+  th {
+    text-align: left
+  }
+}
+
+input#filter {
+  display: block
+  width: 100%
+}
