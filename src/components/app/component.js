@@ -26,6 +26,7 @@ module.exports = class {
 
       const rolls = {}
       Object.keys(this.state.rolls).forEach(id => {
+        this.state.rolls[id].category = this.state.rolls[id].category || ''
         if (this.state.rolls[id].category == category) {
           rolls[id] = this.state.rolls[id]
         }
