@@ -4,7 +4,8 @@
   "description": "Orchestrion Tracker",
   "main": "bin/watch.js",
   "scripts": {
-    "watch": "browser-refresh bin/watch.js --"
+    "watch": "browser-refresh bin/watch.js --",
+    "build": "node bin/build.js"
   },
   "author": "Kura <contact@kurabloodlust.eu>",
   "license": "Apache-2.0",
