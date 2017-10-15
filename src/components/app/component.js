@@ -37,7 +37,7 @@ module.exports = class {
 
   filter (ev, el) {
     if (ev instanceof KeyboardEvent) {
-      switch (ev.Key) {
+      switch (ev.key) {
         case 'Enter':
           document.querySelector('[type="checkbox"]').click()
         case 'Escape':
